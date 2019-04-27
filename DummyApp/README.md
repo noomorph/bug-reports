@@ -2,6 +2,19 @@
 
 Detox Instruments does not record when given `-recordingPath` in launch args.
 
+See test:
+
+```javascript
+beforeAll(async () => {
+  await detox.init(config, { launchApp: false });
+});
+
+it('should have welcome screen', async () => {
+  await device.launchApp({ newInstance: true });
+  await expect(element(by.text('Welcome to React Native!'))).toBeVisible();
+});
+```
+
 ## Environment
 
 1. MacOS Mojave 10.14.4
@@ -22,7 +35,7 @@ Detox Instruments does not record when given `-recordingPath` in launch args.
 detox[58473] ERROR: [SimulatorInstrumentsRecording.js/MOVE_FILE_ERROR] did not find temporary file: /private/var/folders/v5/hhnwwrr530j55yhql8jvf0580000gn/T/8008a8e7-5dc2-4187-b176-60fa00357e8f.dtxrec
 ```
 
-2. Consequently, no `.dtxrec` recording in the artifacts location.
+2. Consequently, no `.dtxrec` recording appears in the artifacts location.
 
 ## Expected result
 
