@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "react-native run-ios",
-    "test": "detox test"
+    "test": "detox test --record-performance all"
   },
   "dependencies": {
     "react": "16.8.3",
