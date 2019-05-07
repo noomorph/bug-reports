@@ -37,4 +37,4 @@ GET 200 http://worldclockapi.com/api/json/utc/now
 
 **Network Activity** timeline is empty.
 
-![Detox Instruments screenshot](images/dtxinst.png)
+![Detox Instruments screenshot](/NetworkRecordingIssue/images/dtxinst.png)
