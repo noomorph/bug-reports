@@ -18,12 +18,24 @@ const instructions = Platform.select({
 
 type Props = {};
 export default class App extends Component<Props> {
+  state = {
+    dayOfTheWeek: '...',
+  };
+
+  async componentDidMount() {
+    const response = await fetch('http://worldclockapi.com/api/json/utc/now');
+    const { dayOfTheWeek } = await response.json();
+
+    if (dayOfTheWeek) {
+      this.setState({ dayOfTheWeek });
+    }
+  }
+
   render() {
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>Welcome to React Native!</Text>
-        <Text style={styles.instructions}>To get started, edit App.js</Text>
-        <Text style={styles.instructions}>{instructions}</Text>
+        <Text style={styles.date}>Today is {this.state.dayOfTheWeek}</Text>
       </View>
     );
   }
@@ -41,7 +53,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     margin: 10,
   },
-  instructions: {
+  date: {
     textAlign: 'center',
     color: '#333333',
     marginBottom: 5,
