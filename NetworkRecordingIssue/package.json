@@ -3,8 +3,8 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "node node_modules/react-native/local-cli/cli.js start",
-    "test": "jest"
+    "start": "react-native run-ios",
+    "test": "detox test"
   },
   "dependencies": {
     "react": "16.8.3",
@@ -23,6 +23,13 @@
     "preset": "react-native"
   },
   "detox": {
-    "test-runner": "jest"
+    "test-runner": "jest",
+    "configurations": {
+      "ios": {
+        "type": "ios.simulator",
+        "binaryPath": "ios/build/NetworkRecordingIssue/Build/Products/Debug-iphonesimulator/NetworkRecordingIssue.app",
+        "name": "iPhone X"
+      }
+    }
   }
 }
